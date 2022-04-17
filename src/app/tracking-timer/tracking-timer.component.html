@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col"></div>
+        <div class="col">
+            <br><br><br>
+            <div class="col text-center">
+                <button *ngIf="!activeFasting" type="button" class="btn btn-outline-primary"
+                    (click)="startTimer()">Start
+                    Fasting</button>
+                <button *ngIf="activeFasting" type="button" class="btn btn-outline-danger" (click)="stopTimer()">Stop
+                    Fasting</button><br><br>
+                <div *ngIf="!activeFasting && fastingDuration" class="alert alert-primary" role="alert">{{
+                    fastingDuration }} </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
