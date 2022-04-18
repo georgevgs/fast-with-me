@@ -1,1 +1,18 @@
-<app-tracking-timer></app-tracking-timer>
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            <mat-toolbar style="background-color:transparent">
+                <div class="flex-stretch"></div>
+                <mat-icon color="primary" class="mr-8">brightness_5</mat-icon>
+                <mat-slide-toggle [checked]="darkMode$ | async" (change)="onToggle()" class="mr-8">
+                </mat-slide-toggle>
+                <mat-icon color="accent">bedtime</mat-icon>
+            </mat-toolbar>
+            <br>
+        </div>
+        <div class="col-8">
+            <app-tracking-timer></app-tracking-timer>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>

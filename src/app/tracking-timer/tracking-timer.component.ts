@@ -17,18 +17,24 @@ export class TrackingTimerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if('activeFasting' in localStorage) {
+      this.activeFasting = JSON.parse(localStorage.getItem('activeFasting') || '{}');
+      console.log(this.activeFasting);
+    }
   }
 
   startTimer(): void {
     this.startDate = new Date();
-    localStorage.setItem('startDate', this.startDate);
-    this.startDate = '';
     this.activeFasting = true;
+    localStorage.setItem('startDate', this.startDate);
+    localStorage.setItem('activeFasting', JSON.stringify(this.activeFasting));
+    this.startDate = '';
   }
 
   stopTimer(): void {
     this.stopDate = new Date();
     this.activeFasting = false;
+    localStorage.removeItem('activeFasting');
     this.startDate = localStorage.getItem('startDate');
     localStorage.removeItem('startDate');
     this.timeFasting = (this.stopDate.getTime() - new Date(this.startDate).getTime());
